@@ -1,5 +1,5 @@
 {
-  "name": "nextjs",
+  "name": "preet-tech",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,14 @@
   },
   "dependencies": {
     "@notionhq/client": "^0.4.4",
-    "next": "12.0.1",
-    "react": "17.x",
-    "react-dom": "17.x"
+    "next": "12.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5"
   }
 }
