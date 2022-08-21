@@ -1,37 +1,37 @@
 import Link from "next/link";
 import React from "react";
 import { Container, Card } from "react-bootstrap";
+import { useStateContext } from "../../../context/StateContext";
 
-const HomePage = () => {
+const HomePage = ({ data }) => {
+  const { totalPages, setTotalPages, pages, setPages } = useStateContext();
+
   return (
     <div>
-      <Container>
-        <Card
+      <Container className="mt-4 d-flex justify-content-center">
+        <div
           style={{
-            height: "250px",
-            width: "200px",
-            top: "50%",
-            left: "50%",
-            position: "absolute",
-            transform: "translate(-50%,-50%)",
+            display: "flex",
           }}
         >
-          <Link href={`/page`}>
-            <span
-              style={{
-                fontSize: "100px",
-                top: "50%",
-                left: "48%",
-                position: "absolute",
-                transform: "translate(-50%,-50%)",
-                color: "gray",
-                cursor: "pointer",
-              }}
-            >
-              +
-            </span>
-          </Link>
-        </Card>
+          <div>
+            {data?.pages?.map((item, i) => (
+              <Link key={i} href={`/${item.pageSlug}`}>
+                <Card
+                  className="mt-3"
+                  style={{
+                    cursor: "pointer",
+                    height: "150px",
+                    width: "100px",
+                    display: "flex",
+                  }}
+                >
+                  <span style={{ margin: "auto" }}>Page {i + 1}</span>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
       </Container>
     </div>
   );

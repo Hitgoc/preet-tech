@@ -1,12 +1,15 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
-  const [page, setPage] = useState();
+  const [pages, setPages] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
 
   return (
-    <Context.Provider value={{ page, setPage }}>{children}</Context.Provider>
+    <Context.Provider value={{ pages, setPages, setTotalPages, totalPages }}>
+      {children}
+    </Context.Provider>
   );
 };
 
